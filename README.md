@@ -1,39 +1,63 @@
-# coutry-info
+# HELLO FROM SASHA
 
-This template should help get you started developing with Vue 3 in Vite.
+Here you will find instructions on how to install packages, run and build project
 
-## Recommended IDE Setup
+#### project **COUNTRY-INFO**
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+# Installing packages
 
-## Type Support for `.vue` Imports in TS
+After copying project from github, and opening it in IDE, open terminal and run
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
+```shell
+npm i
 ```
 
-### Compile and Hot-Reload for Development
+it will install needed packages from package.json file
 
-```sh
+To run project after installing packages
+
+```shell
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+After testing and developing project you need to build it, so run this in terminal
 
-```sh
+```shell
 npm run build
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+## SOME INSIGHTS ON WORK PROCESS
 
-```sh
-npm run lint
+### - Which additional packages i used in developing
+
+Vue project was initialized via
+
+```shell
+npm init vue@latest
 ```
+
+I selected Typescript support, router by default and css preprocessor.
+Additionally, installed Axios package for easier http requests(it can be done with basic js fetch, but axios looks
+prettier 😅)
+
+Also installed sass-embedded, so I can write in SCSS, not in plain css
+
+### - SOME COMMENTS ON TASKS
+
+To access .env variable in project, you need to use `import.meta.env.PROP_NAME`, also prop name should start
+with `VITE_`.
+
+In .env file you will see example 'api_key'(nager don't require any API key) and it will be
+named `VITE_EXAMPLE_API_ENDPOINT`.
+
+Function to make http request written in separate ts file and then imported when needed, to get rid of code repeating
+(you can find it in components/ts/requests.ts).
+
+Also added very basic validation on router props(coutry_code can't be less than 2 characters and more than 2 characters,
+there's shouldn't be any numbers).
+
+Created one component for widget - WidgetItem, it requires object to be passed. Using more components for such tasks may
+be overkill in my opinion.
+
+.env file will be pushed on github as example, and wouldn't contain any real data, only randomly generated hash for
+variable. 
